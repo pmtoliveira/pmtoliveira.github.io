@@ -89,12 +89,12 @@ class App{
                 self.lense = self.model.getObjectByName( "LenseMag" );
                 self.lense.userData.startQuat = self.lense.quaternion.clone();
                 
-                // const mixer = new THREE.AnimationMixer( self.model );
-                // const action = mixer.clipAction( gltf.animations[0] );
-                // action.loop = THREE.LoopOnce;
-                // self.action = action;
+                const mixer = new THREE.AnimationMixer( self.model );
+                const action = mixer.clipAction( gltf.animations[0] );
+                action.loop = THREE.LoopOnce;
+                self.action = action;
                 
-                // self.mixers.push( mixer );
+                self.mixers.push( mixer );
                 
                 self.loadingBar.visible = false;
                 self.renderer.setAnimationLoop( self.render.bind(self) );
