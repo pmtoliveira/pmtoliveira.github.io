@@ -79,7 +79,7 @@ class App{
         // Load a GLTF resource
 		loader.load(
 			// resource URL
-			`controloCNC.glb`,
+			`steampunk_camera.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				self.model = gltf.scene;
