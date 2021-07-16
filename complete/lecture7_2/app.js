@@ -96,7 +96,7 @@ class App{
                 
                 self.mixers.push( mixer );
                 
-                self.loadingBar.visible = true;
+                self.loadingBar.visible = false;
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
 			// called while loading is progressing
@@ -148,7 +148,7 @@ class App{
         const self = this;
         if ( !this.renderer.xr.isPresenting) this.model.rotateY( 0.01 );
         
-        //this.mixers.forEach( mixer => mixer.update(dt) );
+        this.mixers.forEach( mixer => mixer.update(dt) );
         
         this.renderer.render( this.scene, this.camera );
     }
