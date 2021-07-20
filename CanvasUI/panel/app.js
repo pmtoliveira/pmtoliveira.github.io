@@ -69,7 +69,7 @@ class App{
         }
         const content = {
             header: "Header",
-            main: "This is the main text",
+            main: "Este é o texto principal",
             footer: "Footer"
         }
         this.ui = new CanvasUI( content, config );

@@ -52,7 +52,7 @@ class App{
         }
         const content = {
             image: "../../assets/promo.png",
-            info: "The promo image from the course: Learn to create WebXR, VR and AR, experiences using Three.JS"
+            info: "Imagem promocional do curso"
         }
         this.ui = new CanvasUI( content, config );
     }

@@ -48,11 +48,11 @@ class App{
     
     createUI() {
         function onChanged( txt ){
-            console.log( `message changed: ${txt}`);
+            console.log( `messagem alterada: ${txt}`);
         }
         
         function onEnter( txt ){
-            console.log(`message enter: ${txt}`);
+            console.log(`messagem inserida: ${txt}`);
         }
         
         const config = {
@@ -64,7 +64,7 @@ class App{
         }
         const content = {
             message: "",
-            label: "Select the panel above."
+            label: "Seleccione o painel acima."
         }
         this.ui = new CanvasUI( content, config );
     }

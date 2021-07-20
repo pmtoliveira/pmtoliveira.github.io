@@ -50,25 +50,25 @@ class App{
         const self = this;
         
         function onPrev(){
-            const msg = "Prev pressed";
+            const msg = "Anterior pressionado";
             console.log(msg);
             self.ui.updateElement( "info", msg );
         }
         
         function onStop(){
-            const msg = "Stop pressed";
+            const msg = "Stop pressionado";
             console.log(msg);
             self.ui.updateElement( "info", msg );
         }
         
         function onNext(){
-            const msg = "Next pressed";
+            const msg = "Próximo pressionado";
             console.log(msg);
             self.ui.updateElement( "info", msg );
         }
         
         function onContinue(){
-            const msg = "Continue pressed";
+            const msg = "Continuar pressionado";
             console.log(msg);
             self.ui.updateElement( "info", msg );
         }
