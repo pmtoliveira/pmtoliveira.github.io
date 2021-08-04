@@ -106,58 +106,54 @@ class App{
     }
     
     loadGLTF(){
-        console.log( 'Entrei' );
-        //this.initAR();
-        
-        const loader = new GLTFLoader( ).setPath('../../assets/');
-        const self = this;
-        
-        this.loadingBar.visible = true;
-				
-		// Load a glTF resource
-		loader.load(
-			// resource URL
-            //`steampunk_camera.glb`,
-			`base.glb`,
-			// called when the resource is loaded
-			function ( gltf ) {
-				self.scene.add( gltf.scene );
-                self.chair = gltf.scene;
-        
-                self.chair.visible = false; 
-                
-                self.loadingBar.visible = false;
-                
-                self.renderer.setAnimationLoop( self.render.bind(self) );
-                // const bbox = new THREE.Box3().setFromObject( gltf.scene );
-                // console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)},${bbox.min.z.toFixed(2)} -  max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)},${bbox.max.z.toFixed(2)}`);
-                
-                // gltf.scene.traverse( ( child ) => {
-                //     if (child.isMesh){
-                //         child.material.metalness = 0.2;
-                //     }
-                // })
-                // self.chair = gltf.scene;
-                
-				// self.scene.add( gltf.scene );
-                
-                // self.loadingBar.visible = false;
-				
-				// self.renderer.setAnimationLoop( self.render.bind(self));
-			},
-			// called while loading is progressing
-			function ( xhr ) {
+        const loader = new GLTFLoader().setPath('../../assets/');
 
-				self.loadingBar.progress = (xhr.loaded / xhr.total);
+        loader.load( 'base.glb', function ( gltf ) {
+        
+            scene.add( gltf.scene );
+        
+        }, undefined, function ( error ) {
+        
+            console.error( error );
+        
+        } );
+        
+        // //this.initAR();
+        
+        // const loader = new GLTFLoader( ).setPath('../../assets/');
+        // const self = this;
+        
+        // this.loadingBar.visible = true;
 				
-			},
-			// called when loading has errors
-			function ( error ) {
+		// // Load a glTF resource
+		// loader.load(
+		// 	// resource URL
+        //     //`steampunk_camera.glb`,
+		// 	`base.glb`,
+		// 	// called when the resource is loaded
+		// 	function ( gltf ) {
+		// 		self.scene.add( gltf.scene );
+        //         self.chair = gltf.scene;
+        
+        //         self.chair.visible = false; 
+                
+        //         self.loadingBar.visible = false;
+                
+        //         self.renderer.setAnimationLoop( self.render.bind(self) );
+		// 	},
+		// 	// called while loading is progressing
+		// 	function ( xhr ) {
 
-				console.log( 'An error happened' );
+		// 		self.loadingBar.progress = (xhr.loaded / xhr.total);
+				
+		// 	},
+		// 	// called when loading has errors
+		// 	function ( error ) {
 
-			}  
-        );
+		// 		console.log( 'An error happened' );
+
+		// 	}  
+        // );
     }
     
     // loadFBX(){
