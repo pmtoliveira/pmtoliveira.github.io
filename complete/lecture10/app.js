@@ -79,8 +79,7 @@ class App{
         // Load a GLTF resource
 		loader.load(
 			// resource URL
-            `steampunk_camera.glb`,
-			//`base.glb`,
+			`base.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				self.model = gltf.scene;

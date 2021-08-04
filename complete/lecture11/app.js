@@ -7,7 +7,7 @@ import { LoadingBar } from '../../libs/LoadingBar.js';
 
 class App{
 	constructor(){
-		const container = document.createElement( 'div2' );
+		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
 		this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
@@ -68,7 +68,8 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			'base.glb',
+            `steampunk_camera.glb`,
+			//`base.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
                 const bbox = new THREE.Box3().setFromObject( gltf.scene );
