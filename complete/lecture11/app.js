@@ -105,7 +105,7 @@ class App{
     }
     
     loadGLTF(){
-        this.initAR();
+        //this.initAR();
         
         const loader = new GLTFLoader( ).setPath('../../assets/');
         const self = this;
