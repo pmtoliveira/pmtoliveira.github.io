@@ -67,19 +67,19 @@ class App{
     setupXR(){
         this.renderer.xr.enabled = true;
         
-        if ( 'xr' in navigator ) {
+        // if ( 'xr' in navigator ) {
 
-			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
+		// 	navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
 
-                if (supported){
-                    const collection = document.getElementsByClassName("ar-button");
-                    [...collection].forEach( el => {
-                        el.style.display = 'block';
-                    });
-                }
-			} );
+        //         if (supported){
+        //             const collection = document.getElementsByClassName("ar-button");
+        //             [...collection].forEach( el => {
+        //                 el.style.display = 'block';
+        //             });
+        //         }
+		// 	} );
             
-		} 
+		// } 
         
         const self = this;
 
