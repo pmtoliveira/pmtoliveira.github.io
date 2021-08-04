@@ -7,6 +7,8 @@ import { LoadingBar } from '../../libs/LoadingBar.js';
 
 class App{
 	constructor(){
+        this.initAR();
+        
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
@@ -116,8 +118,6 @@ class App{
     }
     
     loadGLTF(){
-        this.initAR();
-        
         const loader = new GLTFLoader( ).setPath('../../assets/');
         const self = this;
         
@@ -208,6 +208,51 @@ class App{
         this.chair.rotateY( 0.01 );
         this.renderer.render( this.scene, this.camera );
     }
+    
+    initAR(){
+        let currentSession = null;
+        const self = this;
+        
+        const sessionInit = { requiredFeatures: [ 'hit-test' ] };
+        
+        
+        function onSessionStarted( session ) {
+
+            session.addEventListener( 'end', onSessionEnded );
+
+            self.renderer.xr.setReferenceSpaceType( 'local' );
+            self.renderer.xr.setSession( session );
+       
+            currentSession = session;
+            
+        }
+
+        function onSessionEnded( ) {
+
+            currentSession.removeEventListener( 'end', onSessionEnded );
+
+            currentSession = null;
+            
+            if (self.chair !== null){
+                self.scene.remove( self.chair );
+                self.chair = null;
+            }
+            
+            self.renderer.setAnimationLoop( null );
+
+        }
+
+        if ( currentSession === null ) {
+
+            navigator.xr.requestSession( 'immersive-ar', sessionInit ).then( onSessionStarted );
+
+        } else {
+
+            currentSession.end();
+
+        }
+    }
+    
 }
 
 export { App };
