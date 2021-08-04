@@ -7,7 +7,7 @@ import { LoadingBar } from '../../libs/LoadingBar.js';
 
 class App{
 	constructor(){
-		const container = document.createElement( 'div' );
+		const container = document.createElement( 'div2' );
 		document.body.appendChild( container );
         
 		this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
