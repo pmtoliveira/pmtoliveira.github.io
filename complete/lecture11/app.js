@@ -54,7 +54,7 @@ class App{
 		
         //this.loadingBar = new LoadingBar();
         
-        this.loadGLTF();
+        //this.loadGLTF();
         //this.loadFBX();
         
         // this.controls = new OrbitControls( this.camera, this.renderer.domElement );
