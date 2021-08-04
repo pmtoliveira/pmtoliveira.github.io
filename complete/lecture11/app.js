@@ -13,7 +13,7 @@ class App{
         this.clock = new THREE.Clock();
         
         this.loadingBar = new LoadingBar();
-        this.loadingBar.visible = false;
+        //this.loadingBar.visible = false;
 
 		this.assetsPath = '../../assets/ar-shop/';
         
