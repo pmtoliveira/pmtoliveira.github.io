@@ -59,7 +59,7 @@ class App{
           self.scene.environment = envMap;
 
         }, undefined, (err)=>{
-            console.error( 'An error occurred setting the environment');
+            console.error( 'An  error occurred setting the environment');
         } );
     }
 	
