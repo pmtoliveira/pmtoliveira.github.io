@@ -40,6 +40,8 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
         
+        this.loadGLTF();
+        
         this.setupXR();
 		
 		window.addEventListener('resize', this.resize.bind(this) );
@@ -47,6 +49,8 @@ class App{
     
     setupXR(){
         this.renderer.xr.enabled = true;
+        
+        const btn = new ARButton( this.renderer, { sessionInit: { requiredFeatures: [ 'hit-test' ], optionalFeatures: [ 'dom-overlay' ], domOverlay: { root: document.body } } } );
         
         if ( 'xr' in navigator ) {
 
