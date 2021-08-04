@@ -105,6 +105,7 @@ class App{
     }
     
     loadGLTF(){
+        console.log( 'Entrei' );
         //this.initAR();
         
         const loader = new GLTFLoader( ).setPath('../../assets/');
@@ -158,34 +159,34 @@ class App{
         );
     }
     
-    loadFBX(){
-        const loader = new FBXLoader( ).setPath('../../assets/');
-        const self = this;
+    // loadFBX(){
+    //     const loader = new FBXLoader( ).setPath('../../assets/');
+    //     const self = this;
     
-        loader.load( 'office-chair.fbx', 
-            function ( object ) {    
-                self.chair = object;
+    //     loader.load( 'office-chair.fbx', 
+    //         function ( object ) {    
+    //             self.chair = object;
 
-                self.scene.add( object );
+    //             self.scene.add( object );
             
-                self.loadingBar.visible = false;
+    //             self.loadingBar.visible = false;
             
-                self.renderer.setAnimationLoop( self.render.bind(self));
-            },
-			// called while loading is progressing
-			function ( xhr ) {
+    //             self.renderer.setAnimationLoop( self.render.bind(self));
+    //         },
+	// 		// called while loading is progressing
+	// 		function ( xhr ) {
 
-				self.loadingBar.progress = (xhr.loaded / xhr.total);
+	// 			self.loadingBar.progress = (xhr.loaded / xhr.total);
 				
-			},
-			// called when loading has errors
-			function ( error ) {
+	// 		},
+	// 		// called when loading has errors
+	// 		function ( error ) {
 
-				console.log( 'An error happened' );
+	// 			console.log( 'An error happened' );
 
-			} 
-        );
-    }
+	// 		} 
+    //     );
+    // }
     
     resize(){
         this.camera.aspect = window.innerWidth / window.innerHeight;
