@@ -17,11 +17,11 @@ class App{
 		this.assetsPath = '../../assets/';
         
 		this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
-		this.camera.position.set( 0, 1.6, 0 );
+		this.camera.position.set( 0, 1.6, 3 );
         
 		this.scene = new THREE.Scene();
 
-		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
+		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 2);
         ambient.position.set( 0.5, 1, 0.25 );
 		this.scene.add(ambient);
 			
@@ -107,6 +107,9 @@ class App{
     
     loadGLTF(){
         const loader = new GLTFLoader().setPath('../../assets/');
+        const self = this;
+        
+        this.loadingBar.visible = true;
 
         loader.load( 'base.glb',
             function ( gltf ) {
