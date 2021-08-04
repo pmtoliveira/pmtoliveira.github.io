@@ -50,7 +50,7 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
         
-        this.setupXR();
+        //this.setupXR();
 		
         //this.loadingBar = new LoadingBar();
         
