@@ -113,7 +113,11 @@ class App{
                 self.scene.add( gltf.scene );
         
         },
-        undefined,
+        function ( xhr ) {
+
+            self.loadingBar.progress = (xhr.loaded / xhr.total);
+            
+        },
         function ( error ) {        
             console.error( error );
         
