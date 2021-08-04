@@ -108,12 +108,13 @@ class App{
     loadGLTF(){
         const loader = new GLTFLoader().setPath('../../assets/');
 
-        loader.load( 'base.glb', function ( gltf ) {
+        loader.load( 'base.glb',
+            function ( gltf ) {
+                self.scene.add( gltf.scene );
         
-            scene.add( gltf.scene );
-        
-        }, undefined, function ( error ) {
-        
+        },
+        undefined,
+        function ( error ) {        
             console.error( error );
         
         } );
