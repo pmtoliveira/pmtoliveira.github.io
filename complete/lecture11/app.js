@@ -7,8 +7,6 @@ import { LoadingBar } from '../../libs/LoadingBar.js';
 
 class App{
 	constructor(){
-        this.initAR();
-        
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
@@ -27,9 +25,9 @@ class App{
         ambient.position.set( 0.5, 1, 0.25 );
 		this.scene.add(ambient);
         
-        const light = new THREE.DirectionalLight( 0xFFFFFF, 1.5 );
-        light.position.set( 0.2, 1, 1);
-        this.scene.add(light);
+        // const light = new THREE.DirectionalLight( 0xFFFFFF, 1.5 );
+        // light.position.set( 0.2, 1, 1);
+        // this.scene.add(light);
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
 		this.renderer.setPixelRatio( window.devicePixelRatio );
@@ -118,6 +116,8 @@ class App{
     }
     
     loadGLTF(){
+        this.initAR();
+        
         const loader = new GLTFLoader( ).setPath('../../assets/');
         const self = this;
         
@@ -208,7 +208,7 @@ class App{
         this.chair.rotateY( 0.01 );
         this.renderer.render( this.scene, this.camera );
     }
-    
+
     initAR(){
         let currentSession = null;
         const self = this;
