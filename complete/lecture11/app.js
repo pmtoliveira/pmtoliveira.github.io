@@ -66,7 +66,9 @@ class App{
         
         const loader = new GLTFLoader( ).setPath('../../assets/');
         const self = this;
-		
+        
+        this.loadingBar.visible = true;
+				
 		// Load a glTF resource
 		loader.load(
 			// resource URL
