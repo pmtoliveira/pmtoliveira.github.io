@@ -10,8 +10,10 @@ class App{
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
+        this.clock = new THREE.Clock();
+        
         this.loadingBar = new LoadingBar();
-        this.loadingBar.visible = false;
+        //this.loadingBar.visible = false;
 
 		this.assetsPath = '../../assets/ar-shop/';
         
