@@ -13,7 +13,7 @@ class App{
         this.clock = new THREE.Clock();
         
         this.loadingBar = new LoadingBar();
-        //this.loadingBar.visible = false;
+        this.loadingBar.visible = false;
 
 		this.assetsPath = '../../assets/ar-shop/';
         
@@ -27,19 +27,19 @@ class App{
         ambient.position.set( 0.5, 1, 0.25 );
 		this.scene.add(ambient);
         
-        const light = new THREE.DirectionalLight( 0xFFFFFF, 1.5 );
-        light.position.set( 0.2, 1, 1);
-        this.scene.add(light);
+        // const light = new THREE.DirectionalLight( 0xFFFFFF, 1.5 );
+        // light.position.set( 0.2, 1, 1);
+        // this.scene.add(light);
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
 		this.renderer.setPixelRatio( window.devicePixelRatio );
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
         this.renderer.outputEncoding = THREE.sRGBEncoding;
         this.renderer.physicallyCorrectLights = true;
-        container.appendChild( this.renderer.domElement );
+        //container.appendChild( this.renderer.domElement );
 		this.setEnvironment();
         
-        this.workingVec3 = new THREE.Vector3();
+        //this.workingVec3 = new THREE.Vector3();
 
         this.reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
@@ -50,7 +50,7 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
         
-        //this.setupXR();
+        this.setupXR();
 		
         //this.loadingBar = new LoadingBar();
         
