@@ -68,25 +68,33 @@ class App{
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-            `steampunk_camera.glb`,
-			//`base.glb`,
+            //`steampunk_camera.glb`,
+			`base.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-                const bbox = new THREE.Box3().setFromObject( gltf.scene );
-                console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)},${bbox.min.z.toFixed(2)} -  max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)},${bbox.max.z.toFixed(2)}`);
-                
-                gltf.scene.traverse( ( child ) => {
-                    if (child.isMesh){
-                        child.material.metalness = 0.2;
-                    }
-                })
-                self.chair = gltf.scene;
-                
 				self.scene.add( gltf.scene );
+                self.chair = gltf.scene;
+        
+                self.chair.visible = false; 
                 
                 self.loadingBar.visible = false;
+                
+                self.renderer.setAnimationLoop( self.render.bind(self) );
+                // const bbox = new THREE.Box3().setFromObject( gltf.scene );
+                // console.log(`min:${bbox.min.x.toFixed(2)},${bbox.min.y.toFixed(2)},${bbox.min.z.toFixed(2)} -  max:${bbox.max.x.toFixed(2)},${bbox.max.y.toFixed(2)},${bbox.max.z.toFixed(2)}`);
+                
+                // gltf.scene.traverse( ( child ) => {
+                //     if (child.isMesh){
+                //         child.material.metalness = 0.2;
+                //     }
+                // })
+                // self.chair = gltf.scene;
+                
+				// self.scene.add( gltf.scene );
+                
+                // self.loadingBar.visible = false;
 				
-				self.renderer.setAnimationLoop( self.render.bind(self));
+				// self.renderer.setAnimationLoop( self.render.bind(self));
 			},
 			// called while loading is progressing
 			function ( xhr ) {
