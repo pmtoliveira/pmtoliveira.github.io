@@ -128,10 +128,10 @@ class App{
         const self = this;
         
         function onSelect() {
-             if ( !self.action.isRunning() ){
-                 self.action.time = 0;
-                 self.action.enabled = true;
-                 self.action.play();
+            if ( !self.action.isRunning() ){
+                self.action.time = 0;
+                self.action.enabled = true;
+                self.action.play();
             }
         }
 
