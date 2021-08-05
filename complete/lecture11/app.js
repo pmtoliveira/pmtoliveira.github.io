@@ -107,12 +107,12 @@ class App{
         controller.addEventListener( 'select', onSelect );
         this.scene.add( controller );
     
-        reticle = new THREE.Mesh(
+        this.reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial()
         );
-        reticle.matrixAutoUpdate = false;
-        reticle.visible = false;
+        this.reticle.matrixAutoUpdate = false;
+        this.reticle.visible = false;
         this.scene.add( reticle );
     }
     
