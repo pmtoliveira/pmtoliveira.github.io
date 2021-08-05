@@ -103,7 +103,7 @@ class App{
             }
         }
 
-        controller = renderer.xr.getController( 0 );
+        controller = self.renderer.xr.getController( 0 );
         controller.addEventListener( 'select', onSelect );
         scene.add( controller );
     
