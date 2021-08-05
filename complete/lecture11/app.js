@@ -115,7 +115,7 @@ class App{
         loader.load( 'base.glb',
             function ( gltf ) {
                 self.scene.add( gltf.scene );
-                self.chair = gltf.scene.children[0];;
+                self.chair = gltf.scene;
                 self.chair.visible = false; 
                 self.loadingBar.visible = false;
                 // self.renderer.setAnimationLoop( self.render.bind(self) );
