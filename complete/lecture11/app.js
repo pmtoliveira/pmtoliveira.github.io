@@ -16,8 +16,9 @@ class App{
 
 		this.assetsPath = '../../assets/';
         
-		this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
-		this.camera.position.set( 0, 1.6, 3 );
+		// this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+		// this.camera.position.set( 0, 1.6, 3 );
+        this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
         
 		this.scene = new THREE.Scene();
 
