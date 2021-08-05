@@ -117,7 +117,8 @@ class App{
                 self.chair = gltf.scene;
                 self.chair.visible = false; 
                 self.loadingBar.visible = false;
-                self.renderer.setAnimationLoop( self.render.bind(self) );
+                // self.renderer.setAnimationLoop( self.render.bind(self) );
+                self.renderer.render(scene, camera);
         
         },
         function ( xhr ) {
