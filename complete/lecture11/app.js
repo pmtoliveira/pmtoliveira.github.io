@@ -99,13 +99,13 @@ class App{
                 mesh.position.setFromMatrixPosition( reticle.matrix );
                 //mesh.scale.y = Math.random() * 2 + 1;
                 mesh.scale.set( 0.25, 0.25, 0.25 );
-                scene.add( mesh );
+                this.scene.add( mesh );
             }
         }
 
         var controller = self.renderer.xr.getController( 0 );
         controller.addEventListener( 'select', onSelect );
-        scene.add( controller );
+        this.scene.add( controller );
     
         reticle = new THREE.Mesh(
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
@@ -113,7 +113,7 @@ class App{
         );
         reticle.matrixAutoUpdate = false;
         reticle.visible = false;
-        scene.add( reticle );
+        this.scene.add( reticle );
     }
     
     setEnvironment(){
