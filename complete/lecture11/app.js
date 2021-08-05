@@ -119,7 +119,6 @@ class App{
                 self.chair.visible = false; 
                 self.loadingBar.visible = false;
                 self.renderer.setAnimationLoop( self.render.bind(self) );
-                //self.renderer.render(self.scene, self.camera);
         
         },
         function ( xhr ) {
