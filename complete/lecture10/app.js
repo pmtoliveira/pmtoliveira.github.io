@@ -69,7 +69,7 @@ class App{
 		loader.load(
 			// resource URL
 			//'office-chair.glb',
-            'chair.glb',
+            'base.glb',
 			// called when the resource is loaded
 			function ( gltf ) {
                 const bbox = new THREE.Box3().setFromObject( gltf.scene );
@@ -81,7 +81,6 @@ class App{
                     }
                 })
                 self.chair = gltf.scene;
-                // teste
                 
 				self.scene.add( gltf.scene );
                 

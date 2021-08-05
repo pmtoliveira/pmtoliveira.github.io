@@ -140,7 +140,7 @@ class App{
         
         this.loadingBar.visible = true;
 
-        loader.load( 'base.glb',
+        loader.load( 'chair.glb',
             function ( gltf ) {
                 self.scene.add( gltf.scene );
                 self.chair = gltf.scene;
