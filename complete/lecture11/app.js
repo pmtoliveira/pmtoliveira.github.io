@@ -62,23 +62,23 @@ class App{
 	}	
     
     setupXR(){
-        // this.renderer.xr.enabled = true;
+        this.renderer.xr.enabled = true;
         
-        // const btn = new ARButton( this.renderer, { sessionInit: { requiredFeatures: [ 'hit-test' ], optionalFeatures: [ 'dom-overlay' ], domOverlay: { root: document.body } } } );
+        const btn = new ARButton( this.renderer, { sessionInit: { requiredFeatures: [ 'hit-test' ], optionalFeatures: [ 'dom-overlay' ], domOverlay: { root: document.body } } } );
         
-        // if ( 'xr' in navigator ) {
+        if ( 'xr' in navigator ) {
 
-		// 	navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
+			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
 
-        //         if (supported){
-        //             const collection = document.getElementsByClassName("ar-button");
-        //             [...collection].forEach( el => {
-        //                 el.style.display = 'block';
-        //             });
-        //         }
-		// 	} );
+                if (supported){
+                    const collection = document.getElementsByClassName("ar-button");
+                    [...collection].forEach( el => {
+                        el.style.display = 'block';
+                    });
+                }
+			} );
             
-		// } 
+		} 
         
         const self = this;
 
