@@ -51,6 +51,10 @@ class App{
         // this.scene.add( this.reticle );
         
         this.loadGLTF();
+
+        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        this.controls.target.set(0, 3.5, 0);
+        this.controls.update();
         
         this.setupXR();
 		
@@ -58,42 +62,58 @@ class App{
 	}	
     
     setupXR(){
-        this.renderer.xr.enabled = true;
+        // this.renderer.xr.enabled = true;
         
-        const btn = new ARButton( this.renderer, { sessionInit: { requiredFeatures: [ 'hit-test' ], optionalFeatures: [ 'dom-overlay' ], domOverlay: { root: document.body } } } );
+        // const btn = new ARButton( this.renderer, { sessionInit: { requiredFeatures: [ 'hit-test' ], optionalFeatures: [ 'dom-overlay' ], domOverlay: { root: document.body } } } );
         
-        if ( 'xr' in navigator ) {
+        // if ( 'xr' in navigator ) {
 
-			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
+		// 	navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
 
-                if (supported){
-                    const collection = document.getElementsByClassName("ar-button");
-                    [...collection].forEach( el => {
-                        el.style.display = 'block';
-                    });
-                }
-			} );
+        //         if (supported){
+        //             const collection = document.getElementsByClassName("ar-button");
+        //             [...collection].forEach( el => {
+        //                 el.style.display = 'block';
+        //             });
+        //         }
+		// 	} );
             
-		} 
+		// } 
         
         const self = this;
 
         this.hitTestSourceRequested = false;
         this.hitTestSource = null;
+
+        var boxgeometry = new THREE.BoxBufferGeometry( 0.25, 0.25, 0.25 ).translate( 0, 0.1, 0 );
         
         function onSelect() {
             if (self.chair===undefined) return;
             
-            //if (self.reticle.visible){
-                self.chair.position.setFromMatrixPosition( self.reticle.matrix );
-                self.chair.visible = true;
-            //}
+            if (self.reticle.visible){
+                // self.chair.position.setFromMatrixPosition( self.reticle.matrix );
+                // self.chair.visible = true;
+
+                var material = new THREE.MeshPhongMaterial( { color: 0xffffff * Math.random() } );
+                var mesh = new THREE.Mesh( boxgeometry, material );
+                mesh.position.setFromMatrixPosition( reticle.matrix );
+                //mesh.scale.y = Math.random() * 2 + 1;
+                mesh.scale.set( 0.25, 0.25, 0.25 );
+                scene.add( mesh );
+            }
         }
 
-        this.controller = this.renderer.xr.getController( 0 );
-        this.controller.addEventListener( 'select', onSelect );
-        
-        this.scene.add( this.controller );
+        controller = renderer.xr.getController( 0 );
+        controller.addEventListener( 'select', onSelect );
+        scene.add( controller );
+    
+        reticle = new THREE.Mesh(
+            new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
+            new THREE.MeshBasicMaterial()
+        );
+        reticle.matrixAutoUpdate = false;
+        reticle.visible = false;
+        scene.add( reticle );
     }
     
     setEnvironment(){
