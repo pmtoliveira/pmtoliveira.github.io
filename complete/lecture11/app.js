@@ -113,7 +113,7 @@ class App{
         );
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
-        this.scene.add( reticle );
+        this.scene.add( this.reticle );
     }
     
     setEnvironment(){
