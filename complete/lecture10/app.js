@@ -81,6 +81,7 @@ class App{
                     }
                 })
                 self.chair = gltf.scene;
+                // teste
                 
 				self.scene.add( gltf.scene );
                 
