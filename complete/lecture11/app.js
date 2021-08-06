@@ -6,7 +6,10 @@ import { OrbitControls } from '../../libs/three/jsm/OrbitControls.js';
 import { ARButton } from '../../libs/ARButton.js';
 import { LoadingBar } from '../../libs/LoadingBar.js';
 
+var browser = require("webextension-polyfill");
+
 class App{
+    
 	constructor(){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
