@@ -7,7 +7,7 @@ import { ARButton } from '../../libs/ARButton.js';
 import { LoadingBar } from '../../libs/LoadingBar.js';
 
 var browser;
-import express from 'webextension-polyfill';
+import browser from 'webextension-polyfill';
 
 class App{
     
