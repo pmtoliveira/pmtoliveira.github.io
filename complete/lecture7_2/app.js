@@ -79,8 +79,8 @@ class App{
         // Load a GLTF resource
 		loader.load(
 			// resource URL
-			//`steampunk_camera.glb`,
-			`maquina.glb`,
+			`steampunk_camera.glb`,
+			//`maquina.glb`,
             //`base.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
