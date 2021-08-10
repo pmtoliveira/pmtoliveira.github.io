@@ -74,9 +74,9 @@ function main() {
     // const mtlLoader = new MTLLoader();
     // mtlLoader.load('https://threejsfundamentals.org/threejs/resources/models/windmill/windmill.mtl', (mtl) => {
     //   mtl.preload();
-       const objLoader = new OBJLoader();
+       const objLoader = new OBJLoader().setPath('../../assets/');
     //   objLoader.setMaterials(mtl);
-      objLoader.load('https://threejsfundamentals.org/threejs/resources/models/windmill/windmill.obj', (root) => {
+      objLoader.load('base.glb', (root) => {
         scene.add(root);
       });
     // });
