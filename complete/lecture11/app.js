@@ -6,8 +6,8 @@ import { OrbitControls } from '../../libs/three/jsm/OrbitControls.js';
 import { ARButton } from '../../libs/ARButton.js';
 import { LoadingBar } from '../../libs/LoadingBar.js';
 
-// var browser;
-import browser from 'webextension-polyfill';
+// // var browser;
+// import browser from 'webextension-polyfill';
 
 class App{
     
