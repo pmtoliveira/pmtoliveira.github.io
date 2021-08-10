@@ -5,11 +5,16 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <script src="../../libs/three/jsm/three.min.js"></script>
+    <!-- <script src="../../libs/three/jsm/three.min.js"></script>
     <script src="../../libs/three/jsm/GLTFLoader.js"></script>
-    <script src="../../libs/three/jsm/OrbitControls.js"></script>
+    <script src="../../libs/three/jsm/OrbitControls.js"></script> -->
     <script>
-      let scene, camera, renderer;
+	import * as THREE from '../../libs/three/three.min.js';
+
+    import { GLTFLoader } from '../../libs/three/jsm/GLTFLoader.js';
+    import { OrbitControls } from '../../libs/three/jsm/OrbitControls.js';
+    
+    let scene, camera, renderer;
       function init() {
         scene = new THREE.Scene();
         scene.background = new THREE.Color(0xdddddd);
