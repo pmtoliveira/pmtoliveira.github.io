@@ -38,24 +38,24 @@ renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
+//controls.enableDamping = true
 
 const loader = new GLTFLoader( ).setPath('../../assets/');
 loader.load(
     'monkey.glb',
     function (gltf) {
         gltf.scene.traverse(function (child) {
-            if ((child as THREE.Mesh).isMesh) {
-                const m = (child as THREE.Mesh)
+            if (child.type === "Mesh") {
+                let m = child;
                 m.receiveShadow = true
                 m.castShadow = true
             }
-            if (((child as THREE.Light)).isLight) {
-                const l = (child as THREE.Light)
+            if (child.type === "SpotLight") {
+                let l = child;
                 l.castShadow = true
                 l.shadow.bias = -.003
-                l.shadow.mapSize.width = 2048
-                l.shadow.mapSize.height = 2048
+                //l.shadow.mapSize.width = 2048
+                //l.shadow.mapSize.height = 2048
             }
         })
         scene.add(gltf.scene)
@@ -95,6 +95,5 @@ function render() {
 
 animate()
     </script>
-    <canvas id="c" width="1600" height="757"></canvas>
   </body>
 </html>
