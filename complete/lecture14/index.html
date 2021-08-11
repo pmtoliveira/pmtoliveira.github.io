@@ -33,7 +33,7 @@ camera.position.z = 2
 const renderer = new THREE.WebGLRenderer()
  renderer.physicallyCorrectLights = true
  renderer.shadowMap.enabled = true
-// renderer.outputEncoding = THREE.sRGBEncoding
+ renderer.outputEncoding = THREE.sRGBEncoding
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
@@ -43,7 +43,7 @@ const controls = new OrbitControls(camera, renderer.domElement)
 const loader = new GLTFLoader( ).setPath('../../assets/');
 loader.load(
     'monkey.glb',
-    
+
     function (gltf) {
         gltf.scene.traverse(function (child) {
             if (child.type === "Mesh") {
